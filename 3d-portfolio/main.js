@@ -52,6 +52,27 @@ Array(200).fill().forEach(addStar)
 const spaceTexture = new THREE.TextureLoader().load('space3.jpg')
 scene.background = spaceTexture
 
+// Aaren Texture
+const aarenTexture = new THREE.TextureLoader().load('aaren3.png')
+const aaren = new THREE.Mesh(
+  new THREE.BoxGeometry(3, 3, 3), 
+  new THREE.MeshBasicMaterial({map: aarenTexture})
+)
+aaren.position.set(5, 5)
+scene.add(aaren)
+
+// Moon
+const moonTexture = new THREE.TextureLoader().load('moon.jpeg')
+const normalTexture = new THREE.TextureLoader().load('normal.jpeg')
+const moon = new THREE.Mesh(
+  new THREE.SphereGeometry(3, 32, 32),
+  new THREE.MeshStandardMaterial({
+    map: moonTexture,
+    normalMap: normalTexture
+  })
+)
+scene.add(moon)
+
 function animate() {
   requestAnimationFrame( animate )
 
