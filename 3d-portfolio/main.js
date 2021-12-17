@@ -13,8 +13,8 @@ const renderer = new THREE.WebGLRenderer({
 
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setPixelRatio(window.devicePixelRatio)
-camera.position.setZ(30);
-camera.position.setX(-3);
+// camera.position.setZ(30);
+// camera.position.setX();
 
 // renderer.render( scene, camera );
 
@@ -57,10 +57,14 @@ scene.background = spaceTexture
 // Avatar
 const aarenTexture = new THREE.TextureLoader().load('aaren3.png')
 const aaren = new THREE.Mesh(
-  new THREE.BoxGeometry(3, 3, 3), 
+  new THREE.BoxGeometry(2, 2, 2), 
   new THREE.MeshBasicMaterial({map: aarenTexture})
 )
-aaren.position.set(5, 5)
+aaren.position.setX(2.2)
+aaren.position.setZ(-5)
+aaren.rotateY(-4.86)
+aaren.rotateX(0)
+aaren.rotateZ(0)
 scene.add(aaren)
 
 // Moon
