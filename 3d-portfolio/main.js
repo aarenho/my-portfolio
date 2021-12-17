@@ -1,6 +1,7 @@
 import './style.css'
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 
 const scene = new THREE.Scene();
 
@@ -74,24 +75,38 @@ moon.position.setZ(30)
 moon.position.setX(-10)
 scene.add(moon)
 
+// Piano
+const loader = new GLTFLoader();
+
+loader.load( '/piano/scene.gltf', function ( gltf ) {
+
+	scene.add( gltf.scene );
+
+}, undefined, function ( error ) {
+
+	console.error( error );
+
+} );
+
+
 // Scroll Animation
-function moveCamera() {
-  const t = document.body.getBoundingClientRect().top
+// function moveCamera() {
+//   const t = document.body.getBoundingClientRect().top
 
-  moon.rotateX(0.05)
-  moon.rotateY(0.075)
-  moon.rotateZ(0.05)
+//   moon.rotateX(0.05)
+//   moon.rotateY(0.075)
+//   moon.rotateZ(0.05)
 
-  aaren.rotateX(0.01)
-  aaren.rotateY(0.01)
+//   aaren.rotateX(0.01)
+//   aaren.rotateY(0.01)
 
-  camera.position.setX(t * -0.0002)
-  camera.position.setY(t * -0.0002)
-  camera.position.setZ(t * -0.01)
+//   camera.position.setX(t * -0.0002)
+//   camera.position.setY(t * -0.0002)
+//   camera.position.setZ(t * -0.01)
   
-}
+// }
 
-document.body.onscroll = moveCamera
+// document.body.onscroll = moveCamera
 
 // Animation / "Game" Loop
 function animate() {
