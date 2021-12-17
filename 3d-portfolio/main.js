@@ -18,8 +18,9 @@ renderer.setPixelRatio(window.devicePixelRatio)
 
 // renderer.render( scene, camera );
 
+// Torus
 const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
-const material = new THREE.MeshStandardMaterial( { color: 0xFF6347  } );
+const material = new THREE.MeshStandardMaterial( { color: 0x191970  } );
 const torus = new THREE.Mesh( geometry, material );
 
 scene.add(torus);
@@ -31,9 +32,9 @@ pointLight.position.set(5, 5, 5)
 const ambientLight = new THREE.AmbientLight(0xFFFFFF)
 // Helpers
 const lightHelper = new THREE.PointLightHelper(pointLight)
-const gridHelper = new THREE.GridHelper(200, 50)
+// const gridHelper = new THREE.GridHelper(200, 50)
 
-scene.add(pointLight, ambientLight, lightHelper, gridHelper )
+scene.add(pointLight, ambientLight, lightHelper)
 
 const controls = new OrbitControls(camera, renderer.domElement)
 
