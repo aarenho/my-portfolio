@@ -14,6 +14,7 @@ const renderer = new THREE.WebGLRenderer({
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setPixelRatio(window.devicePixelRatio)
 camera.position.setZ(30);
+camera.position.setX(-3);
 
 // renderer.render( scene, camera );
 
@@ -49,11 +50,11 @@ function addStar() {
 
 Array(200).fill().forEach(addStar)
 
-// Space Texture
+// Space Background
 const spaceTexture = new THREE.TextureLoader().load('space3.jpg')
 scene.background = spaceTexture
 
-// Aaren Texture
+// Avatar
 const aarenTexture = new THREE.TextureLoader().load('aaren3.png')
 const aaren = new THREE.Mesh(
   new THREE.BoxGeometry(3, 3, 3), 
@@ -78,9 +79,11 @@ scene.add(moon)
 // Piano
 const loader = new GLTFLoader();
 
-loader.load( '/piano/scene.gltf', function ( gltf ) {
-
-	scene.add( gltf.scene );
+loader.load( '/piano/scene.gltf', function ( pianoGltf ) {
+  const piano = pianoGltf.scene
+  piano.position.set(5,5,-5)
+  scene.add(piano);
+  // pianoGltf.position.setZ(-10)
 
 }, undefined, function ( error ) {
 
@@ -90,23 +93,23 @@ loader.load( '/piano/scene.gltf', function ( gltf ) {
 
 
 // Scroll Animation
-// function moveCamera() {
-//   const t = document.body.getBoundingClientRect().top
+function moveCamera() {
+  const t = document.body.getBoundingClientRect().top
 
-//   moon.rotateX(0.05)
-//   moon.rotateY(0.075)
-//   moon.rotateZ(0.05)
+  moon.rotateX(0.05)
+  moon.rotateY(0.075)
+  moon.rotateZ(0.05)
 
-//   aaren.rotateX(0.01)
-//   aaren.rotateY(0.01)
+  aaren.rotateX(0.01)
+  aaren.rotateY(0.01)
 
-//   camera.position.setX(t * -0.0002)
-//   camera.position.setY(t * -0.0002)
-//   camera.position.setZ(t * -0.01)
+  camera.position.setX(t * 0.002)
+  camera.position.setY(t * -0.001)
+  camera.position.setZ(t * -0.01)
   
-// }
+}
 
-// document.body.onscroll = moveCamera
+document.body.onscroll = moveCamera
 
 // Animation / "Game" Loop
 function animate() {
