@@ -25,7 +25,7 @@ main {
   padding: 120px 0px;
 
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  grid-template-columns: repeat(24, 1fr);
 }
 
 h1,
@@ -45,14 +45,14 @@ canvas {
 
 header {
   background: var(--dark-bg);
-  grid-column: 2 / span 5;
+  grid-column: 4 / span 9;
   font-size: 2.5rem;
   padding: 2rem;
   margin-bottom: var(--spacing);
 }
 
 section {
-  grid-column: 2 / 8;
+  grid-column: 4 / 16;
   padding: 1rem;
   background: var(--dark-bg);
   font-size: 1.25rem;
@@ -63,7 +63,7 @@ section {
 blockquote {
   margin: 0;
   padding: 0;
-  grid-column: 2 / span 9;
+  grid-column: 4 / span 18;
   margin-bottom: var(--spacing);
 }
 
@@ -76,5 +76,5 @@ blockquote p {
 }
 
 .left {
-  grid-column: 6 / 12;
+  grid-column: 12 / 24;
 }
