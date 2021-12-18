@@ -108,9 +108,9 @@ function moveCamera() {
   aaren.rotateX(0.01)
   aaren.rotateY(0.01)
 
-  camera.position.setX(t * 0.002)
-  camera.position.setY(t * -0.001)
-  camera.position.setZ(t * -0.01)
+  camera.position.setX(t * 0.00075)
+  camera.position.setY(t * -0.00075)
+  camera.position.setZ(t * -0.0075)
   
 }
 
